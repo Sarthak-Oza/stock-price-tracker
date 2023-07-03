@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stock Price Monitor</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Coiny&family=Sono&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body class="container">
+    <h1>Stock Price Monitor</h1>
+    <div class="">
+      <h3>Stock Search</h3>
+      <form>
+        <div class="stockInput">
+          <label for="stockName">Stock Symbol</label>
+
+          <input
+            type="text"
+            id="stockName"
+            name="stockName"
+            class="stockInputBox"
+          />
+          <a href="https://stockanalysis.com/stocks/" target="_blank">Stock Symbol List</a>
+        </div>
+        <div class="radioInput">
+          <label for="radioFive"></label>
+          <input type="radio" id="radioFive" name="radiotime" value="5min" />5
+          Minutes
+          <label for="radioFifteen"></label>
+          <input
+            type="radio"
+            id="radioFifteen"
+            name="radiotime"
+            value="15min"
+          />15 Minutes
+          <label for="radioSixty"></label>
+          <input
+            type="radio"
+            name="radiotime"
+            id="radioSixty"
+            value="60min"
+            checked
+          />60 Minutes
+        </div>
+
+        <div>
+          <button type="submit" onclick="getStockDetails(event)">Find</button>
+          <button type="submit" onclick="updateStock(event)">Update</button>
+        </div>
+      </form>
+    </div>
+    <div>
+      <h3>Stock Result</h3>
+      <div class="stockResultDiv hidden">
+        <div style="width: 800px; height: 320px; margin: auto">
+          <canvas id="stockChart" width="800px" height="300px"></canvas>
+        </div>
+        <h4 class="stockDate"></h4>
+        <table class="myTable">
+          <thead>
+            <tr>
+              <th>Time (US/Easten)</th>
+              <th>Open (USD)</th>
+              <th>High (USD)</th>
+              <th>Low (USD)</th>
+              <th>Close (USD)</th>
+              <th>Volume</th>
+            </tr>
+          </thead>
+          <tbody class="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <h3>Download Stock Report</h3>
+      <button type="button" onclick="downloadCSV(event)">Download</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
